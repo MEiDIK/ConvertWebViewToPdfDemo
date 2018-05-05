@@ -119,7 +119,7 @@ public class PdfView {
     private  static void fileChooser(Activity activity, String path) {
         File file = new File(path);
         Intent target = new Intent("android.intent.action.VIEW");
-        Uri uri = FileProvider.getUriForFile(activity, "com.package.name.fileprovider", file);
+        Uri uri = FileProvider.getUriForFile(activity, activity.getPackageName() + ".fileprovider", file);
         target.setDataAndType(uri, "application/pdf");
         target.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         Intent intent = Intent.createChooser(target, "Open File");
